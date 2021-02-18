@@ -1,0 +1,97 @@
+Question # 1:
+- Select TOP 3rd EMPLOYEE
+
+Answer:
+
+select * from EMP
+limit 2, 1
+
+
+Question # 2: 
+- Get 2nd maximum salary
+
+
+Answer:
+
+select SALARY
+from EMP
+order by SALARY desc limit 1, 1
+
+
+Question # 3:
+- List "EMPLOYEE NAME", DOB, "DEPARTMENT NAME" of "QA" DEPARTMENT, Sorting by "EMPLOYEE NAME" ASC
+
+
+Answer:
+
+select a.EMPNAME,
+a.DOB,
+b.DEPTNAME
+from EMP as a
+join DEPT as b on a.DEPTID = b.DEPTID
+where b.DEPTNAME = "QA"
+order by a.EMPNAME asc;
+
+
+Question # 4: 
+- List "EMPLOYEE NAME", "AGE", "DEPARTMENT NAME" Sort by "AGE" DESC
+
+
+Answer:
+
+select a.EMPNAME,
+a.DOB,
+b.DEPTNAME
+from EMP as a
+join DEPT as b on a.DEPTID = b.DEPTID
+order by a.DOB asc;
+
+
+Question # 5: 
+- List "DEPARTMENT NAME", Number of Employees Sort by Number of Employees
+
+
+Answer:
+
+select b.DEPTNAME,
+select count(a.EMPID) as Number_of_Employees
+from DEPT as b
+join EMP as a on b.DEPTID = a.DEPTID
+group by b.DEPTNAME
+order by Number_of_Employees desc;
+
+
+Question # 6:
+- List EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME (Display all employees including the ones who do not have a manager)
+
+Answer:
+
+
+
+Question # 6:
+- List EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME (Display all employees including the ones who do not have a manager)
+
+Answer:
+
+Select 
+a.EMPNAME,
+a.MGRID,
+b.DEPTNAME
+from EMP as a
+full join DEPT as b on a.DEPTID = b.DEPTID
+order by a.EMPNAME;
+
+
+
+Question # 7: List EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME  (From all department which have more than one employee)
+
+Answer:
+
+
+Select 
+a.EMPNAME,
+a.MGRID,
+b.DEPTNAME
+from EMP as a
+join DEPT as b on a.DEPTID = b.DEPTID
+order by a.EMPNAME;
